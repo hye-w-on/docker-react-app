@@ -4,7 +4,7 @@ services:
   - docker
 before_install:
   - echo "start"
-  - docker build -t hyewonew/docker-react-app -f Dockerfile.dev
+  - docker build -t hyewonew/docker-react-app -f Dockerfile.dev .
 script:
   - docker run -e CI=true hyewonew/docker-react-app npm run test --coverage
 
