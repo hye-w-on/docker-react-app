@@ -1,0 +1,12 @@
+sudo: required
+language: generic
+services:
+  - docker
+before_install:
+  - echo "start"
+  - docker build -t hyewonew/docker-react-app -f Dockerfile.dev
+script:
+  - docker run -e CI=true hyewonew/docker-react-app npm run test --coverage
+
+after_succecc:
+  - echo "test success"
